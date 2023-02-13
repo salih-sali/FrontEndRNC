@@ -8,7 +8,7 @@ import Axios from 'axios'
 const Data = () => {
      function pdfGenerator(){
         try {
-            const url = "http://34.100.147.79:3001//RNC/return";
+            const url = "http://34.100.147.79:3001/RNC/return";
             Axios.get(url).then((res) =>{
             console.log(res.data)
             alert(res.data.message)
