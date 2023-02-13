@@ -1,0 +1,59 @@
+/* .logo{
+    padding-top: 0px;
+    left:10px;
+    width:200px;
+    /* border: 1px solid ; */
+
+
+.navbar{
+    position: fixed;
+    top:0;
+    width: 100%;
+    height:100px;
+    padding:20px;
+    display:flex;
+   
+    background-color: rgb(43, 125, 129);
+    
+}
+
+.login{
+    position:fixed;
+    right:12%;
+    padding-top:40px;
+    color:rgb(227, 59, 59);
+    font-size: 20px;
+    font-family:apple;
+
+}
+
+.signup{
+    position:fixed;
+    right:16.5%;
+    padding-top:40px;
+    color:rgb(223, 63, 63);
+    font-size: 20px;
+    font-family:apple;
+}
+a:link{
+    text-decoration: none!important;
+    cursor: pointer;
+  }
+.rnc{
+    
+    
+    text-align: center;
+    /* border: 1px solid ;
+     */
+    font-size:40px;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   color: rgb(231, 224, 225);
+   text-decoration: none!important;
+   margin-left: 359px;
+   
+  }
+
+
+h1 {
+    text-decoration: none;
+  }

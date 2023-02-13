@@ -1,0 +1,60 @@
+
+/* .home2{
+    background-color:rgb(22, 93, 117);
+   
+} */
+.logoutstyle{
+    
+    height:150px;
+    width:100%;
+    color: rgb(27, 21, 105);
+    /* padding-left: 300px; */
+    text-align: center;
+    padding-top: 30px;
+    font-size:xx-large;
+    background-color:  rgb(85, 166, 170);   
+    
+}
+.button3 {
+    top:10%;
+    position: absolute;
+    left:90%;
+    display: inline-block;
+    font-size: 30px;
+    font-family:'Times New Roman', Times, serif;
+    border-radius: 15%;
+    background-color: rgb(43, 125, 129); 
+    color:white;
+    border: 0px solid;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    top: 15px;
+    color: black;
+  }
+  
+  .button3:hover {
+    background-color: #af2027;
+    color: white;
+  }
+  
+#welcomemsg{
+    text-align: center;
+    padding-top:20px ;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    background-color:  rgb(85, 166, 170);   
+    font-weight: bolder;
+    font-size: larger;
+}
+.mask{
+    margin-top: 230px;
+    height:max-content; 
+    background-color: rgb(85, 166, 170);   
+}
+#card{
+    border: 50%;
+}
+.details{
+    text-align: left;
+    margin: 29px;
+}

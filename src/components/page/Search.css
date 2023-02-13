@@ -1,0 +1,28 @@
+.search1
+{
+    
+    z-index: 101;
+    position: relative;
+    /* transform: translateY(-100%); */
+    /* width: 100vw;
+    bottom: 100%;
+    border: 1px solid black; 
+    background-color: green;*/
+}
+
+.search1{
+   text-align: center;
+   
+}
+button{
+    align-items: center;
+}
+
+.details{
+    text-align: center;
+}
+.google{
+    font-size:medium;
+    margin-left:380px;
+   
+}

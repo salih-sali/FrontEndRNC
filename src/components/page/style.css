@@ -1,0 +1,63 @@
+.container{
+    width : 1400px;
+   
+     
+}
+
+.search{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    background-color:rgb(85, 166, 170);   
+}
+.search1{
+  background-color: rgb(85, 166, 170);   
+}
+
+.btn21{
+    
+    
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: larger;
+    /* font-weight: 700; */
+    font-family: 'Times New Roman', Times, serif;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    
+    
+  }
+  .button21 {
+    background-color: rgb(26, 55, 217);
+    color:white; 
+    border: 2px solid  rgb(26, 55, 217);
+    margin-left: 10px;
+    /* float:right; */
+   
+  }
+  
+  .button21:hover {
+    background-color:rgb(65, 88, 221); 
+    color: white;
+    border: 0px;
+  }
+  .button22 {
+    background-color:rgb(26, 55, 217); 
+    color:white; 
+    border: 2px solid rgb(26, 55, 217);
+    margin-left: 10px;
+    /* float:right; */
+   
+  }
+  
+  .button22:hover {
+    background-color:rgb(65, 88, 221); 
+    color: white;
+    border: 0px;
+  }
+
+  .viewDrop{
+    background-color: #ecf0f2;
+    color:rgb(10, 11, 11);
+  }
+

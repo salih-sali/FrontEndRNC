@@ -1,0 +1,11 @@
+.newdata{
+    width: 550px;
+    padding: 10px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    background-color:aliceblue;
+    z-index: 101;
+}

@@ -1,0 +1,25 @@
+
+:root {
+    --rft-main-color: #353560;
+    --rft-button-color: #061e2c;
+    --rft-even-row-color:white;
+  }
+
+  .rft-gs-input {
+    width: 22% !important;
+    padding: 7px !important;
+    margin-left: 5px;
+    border-radius: 10px !important;
+  }
+  
+.rft-table tbody tr {
+    background-color: rgb(230, 230, 72);
+  
+  }
+  .rft-table tbody tr:hover {
+    transition: 0.3s;
+    cursor: pointer;
+    background-color: #f16711;
+  }
+
+  
