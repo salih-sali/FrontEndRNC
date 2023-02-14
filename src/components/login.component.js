@@ -27,6 +27,16 @@ const [data, setData] = useState({ email: "", password: "" })
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+
+    // for mgits mail verification
+    // var regex = /^[^\s@]+@mgits.ac.in$/; 
+    // var result = regex.test(data.email);
+    // if(result == true){
+    //   console.log("correct email address format!")
+    // else{
+    //   alert("wrong email address!\nplease use mgits mail id")
+    // }
+
 		try {
 			const url = "http://34.100.147.79:3001/RNC/signin";
 			const { data: res } = await axios.post(url, data);
@@ -51,18 +61,9 @@ const [data, setData] = useState({ email: "", password: "" })
 				setError(error.response.data.message);
 			}
 		}
-	}
-// {/* <div className='navbar'> 
-//       <a href="https://mgmits.ac.in/">
-//          <img className="logo" src={imh1}></img></a>
-//          <img className="nba" src="https://mgmits.ac.in/wp-content/themes/muthoot/images/nba.png"></img>
-//          <img className="nirf" src="https://mgmits.ac.in/wp-content/themes/muthoot/images/nirf-logo.png"></img>
-//          <img className="ariia" src="https:/mgmits.ac.in/wp-content/themes/muthoot/images/ariia_logo.jpg"></img>
-        
-//          <a href="/qqq/form-1" >
-//          <h1 className='rnc'>RESEARCH AND CONSULTANCY CELL</h1></a>
-//          </div> */}
+}
 
+  
     return (
       <div className="main">
       
@@ -107,10 +108,10 @@ const [data, setData] = useState({ email: "", password: "" })
             Log In
           </button>
          
-          <p className="forgot-password text-right">
+          <h6 className="forgot-password text-right">
           <a href="/sign-up"> new user ? Sign Up</a>
           <a href="/forgot-password"> forgotten password ?</a>
-        </p>
+        </h6>
           
          
         </div>

@@ -52,15 +52,15 @@ const [error, setError] = useState("")
       <form onSubmit={handleSubmit}>
         <div className="signupParentDiv">
         <h3>Forget password </h3>
-        
+        <br/>
    
         <div className="mb-3">
-          <label>Registered Email address</label>
+          <label>Registered mgits e-mail address</label>
           <br/>
           <input
             type="email"
             className="form-control"
-            placeholder="Enter email"
+            placeholder="Enter mgits e-mail"
            
 			required
               name='email'
@@ -74,7 +74,7 @@ const [error, setError] = useState("")
         
       
 
-        <label>   Please Check the Spam too ..!!!</label><br/><br/>
+        <label>   Please Check your mail for password </label><br/><br/>
 
         
         <div className="d-grid">
@@ -84,10 +84,10 @@ const [error, setError] = useState("")
             Request  Password
           </button>
         </div>
-        <p className="forgot-password text-right">
+        <h6 className="forgot-password text-right">
            <a href="/sign-in">Got password? go to sign in</a>
            <a href="/sign-up"> Not registered ? new user ? Sign Up</a>
-        </p>
+        </h6><br/>
         </div>
       </form>
       </div>

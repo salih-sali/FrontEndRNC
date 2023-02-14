@@ -28,7 +28,7 @@ function SignUp() {
   branch: '',
   email: '',
   password: '',
-  dateOfBirth:''
+  OCRid:''
 })
 
 const [error, setError] = useState("")
@@ -40,29 +40,42 @@ const [error, setError] = useState("")
 	}
 
 	const handleSubmit = async (e) => {
-		e.preventDefault()
-    console.log(data)
-		try {
-			const url = "http://34.100.147.79:3001/RNC/signup"
-			const { data: res } = await axios.post(url, {
-        "name": data.name,
-        "branch": data.branch,
-        "email": data.email,
-        "password": data.password,
-        "OCRid": data.OCRid
-      })
-			navigate("/sign-in")
-      alert(res.message)
-			console.log(res.message)
-		} catch (error) {
-			if (
-				error.response &&
-				error.response.status >= 400 &&
-				error.response.status <= 500
-			) {
-				setError(error.response.data.message)
-			}
-		}
+    e.preventDefault()
+  
+        var regex = /^[^\s@]+@mgits.ac.in$/;
+        var result = regex.test(data.email);
+        if(result == true){
+          console.log("correct email address format!")
+          console.log(data)
+          try {
+            const url = "http://34.100.147.79:3001/RNC/signup"
+            const { data: res } = await axios.post(url, {
+              "name": data.name,
+              "branch": data.branch,
+              "email": data.email,
+              "password": data.password,
+              "OCRid": data.OCRid
+            })
+            navigate("/sign-in")
+            alert(res.message)
+            console.log(res.message)
+          } catch (error) {
+            if (
+              error.response &&
+              error.response.status >= 400 &&
+              error.response.status <= 500
+            ) {
+              setError(error.response.data.message)
+            }
+          }
+
+        }
+        else{
+            alert("wrong email address!\nplease use mgits mail id")
+        }
+    
+		
+    
 	}
 
  const handleSub=(e)=>{
@@ -103,7 +116,7 @@ const handleSelect=(e)=>{
             className="form-control"
             placeholder="enter name"
             //value={name}
-            
+            required
             onChange={handleChange}
             name="name"
           // onChange={(e)=>setData.firstName(e.target.value)}
@@ -111,9 +124,9 @@ const handleSelect=(e)=>{
         </div>
 
         
-        <label htmlFor="lname">Branch</label>
+       {/* <label htmlFor="lname">Branch</label>
             <br />
-            <select
+             <select
             style={{width:"300px"}} className= "input" onChange={handleChange}
             name="branch" required>
               <option value = ''>Choose the Branch</option>
@@ -122,20 +135,32 @@ const handleSelect=(e)=>{
               <option value = "CE">CE</option>
               <option value = "ME">ME</option>
               <option value = "ECE">ECE</option>
-            </select>
-
-            <br/>
-            <br />
+            </select> */}
 
         <div className="mb-3">
-          <label>Email address</label>
+          <label>E-mail address</label>
           <input
             type="email"
             className="form-control"
-            placeholder="Enter email"
+            placeholder="Enter mgits e-mail"
             onChange={handleChange}
 							required
               name='email'
+            //2.value={emailaddress}
+            //onChange={(e)=>setEmailaddress(e.target.value)}
+          />
+        </div> 
+           
+
+        <div className="mb-3">
+          <label>Enter your branch</label>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="CSE / ME / CE / EEE / EC ....."
+            onChange={handleChange}
+							required
+              name='branch'
             //2.value={emailaddress}
             //onChange={(e)=>setEmailaddress(e.target.value)}
           />
@@ -184,9 +209,9 @@ const handleSelect=(e)=>{
             Sign Up
           </button>
         </div>
-        <p className="forgot-password text-right">
+        <h6 className="forgot-password text-right">
            <a href="/sign-in">Already registered.? sign in</a>
-        </p>
+        </h6>
         </div>
       </form>
       </div>
