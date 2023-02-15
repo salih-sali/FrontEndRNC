@@ -60,7 +60,7 @@ function App1() {
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/forgot-password" element={<Forgetpassword/>} />
             {user && role==="A" && <Route path="/show-All" exact element={<ShowAll />} />}
-            {user && role==="A"&& <Route path="/form-1" element={<Form1 />} />}
+            {user && (role==="A"||role==="M") && <Route path="/form-1" element={<Form1 />} />}
             {user && role==="F" && <Route path="/add-details" element={<AddD />} />}
             {user && role==="A"&& <Route path = "/Data" element = {<Data />} />}
             {user && role==="A"&& <Route path = "/AssignMember" element = {<AssignMember />} />}
@@ -69,7 +69,7 @@ function App1() {
             {user && role==="A"&& <Route path = "/ShowEvents" element = {<ShowEvents />} />}
             {user && role==="M"&& <Route path = "/ApprovePublication" element = {<ApprovePublication />} />}
             {user && role==="F" && <Route path = "/ViewProfile" element = {<ViewProfile />} />}
-            {user && role==='A' && <Route path = "/ListFP" element = {<ListFP />} />}
+            {user && (role==="A"||role==="M") && <Route path = "/ListFP" element = {<ListFP />} />}
       </Routes>
 
        </Router>

@@ -35,7 +35,7 @@ function AddD() {
 	const handleSub = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://34.100.147.79:3001/RNC/add";
+			const url = "http://localhost:3001/RNC/add";
 			const { data: res } = await axios.post(url, data2);
 			navigate("/home");
 			console.log(res.message);

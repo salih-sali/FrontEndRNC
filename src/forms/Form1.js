@@ -8,14 +8,15 @@ import { Link, useNavigate } from "react-router-dom";
 function Form1() {
 
   const [data3, setData3] = useState({
-		
+		Type:"",
 		title: "",
-    year: "",
+    Academic_Year: "",
 		agency: "",
 		name: "",
     GoP: "",
-    dept:"",
-		amount: ""
+		amount: "",
+    Department:"",
+    Status:""
 	});
   
 	const [error, setError] = useState("");
@@ -23,6 +24,7 @@ function Form1() {
 
 	const handleChange = ({ currentTarget: input }) => {
 		setData3({ ...data3, [input.name]: input.value });
+    console.log(data3)
 	};
 
 	const handleSub = async (e) => {
@@ -54,15 +56,49 @@ function Form1() {
 
   return (
     
-    <div className="signupParentDiv">
-    <h5 >enter the details of approved projects only..!</h5>
+    <div   className="signupParentDiv">
+    <h5 >Enter the details of Funded Projects / Conultancy ..!</h5>
       <form >
         
-      <br />
-        <label htmlFor="fname">Project Description</label>
+     
+      <select
+            style={{width:"200px" , height:"24px" , margin:"10px 10px"}} className= "input" name='Type' onChange={handleChange} value = {data3.Type} required>
+              <option value = ''>Choose the Type</option>
+              <option value = "Funded Project">Funded Project</option>
+              <option value = "Conultancy">Conultancy</option>
+          
+            </select>
+            <select
+            style={{width:"200px" , height:"24px" , margin:"10px 20px"}} className= "input" name='Status' onChange={handleChange} value = {data3.Status} required>
+              <option value = ''>select the status</option>
+              <option value = "Requested">Requested</option>
+              <option value = "Approved">Approved</option>
+              <option value = "Completed">Completed</option>
+          
+            </select><br/>
+            <label style={{ width:"240px" }}>Academic Year  (eg: 2019-2023 )</label>
+        
+        <input style={{ width:"120px" }}
+          className="input"
+          type="texts"
+          //id="fname"
+          name="Academic_Year"
+          
+         //value={year}
+         placeholder="YYYY-YYYY"
+          onChange={handleChange}
+          value={data3.Academic_Year}
+          required
+
+            //onChange={(e)=>setYear(e.target.value)}
+          
+        />
+        <br />
+        <label style={{margin:"10px 0px 0px 0px"}} htmlFor="fname">Project Description</label>
         <br />
         <input
-         style={{ width:"500px" }}
+         style={{ width:"500px"}}
+             
           className="input"
           type="text"
           id="fname"
@@ -78,25 +114,8 @@ function Form1() {
         />
        
         <br />
-        <label>Year</label>
-        <br />
-        <input style={{ width:"500px" }}
-          className="input"
-          type="Number"
-          //id="fname"
-          name="year"
-          
-         //value={year}
-         placeholder="YYYY"
-          onChange={handleChange}
-          value={data3.year}
-          required
-
-            //onChange={(e)=>setYear(e.target.value)}
-          
-        />
-        <br />
-        <label htmlFor="lname">Name & Designation PI / Co-PI</label>
+       
+        <label  style={{margin:"10px 0px 0px 0px"}} htmlFor="lname">Name & Designation PI / Co-PI</label>
         <br />
         <input
          style={{ width:"500px" }}
@@ -113,7 +132,7 @@ function Form1() {
           
         />
          <br />
-        <label htmlFor="lname">Funding Agency</label>
+        <label style={{margin:"10px 0px 0px 0px"}} htmlFor="lname">Funding Agency</label>
         <br />
         <input
           style={{ width:"500px" }}
@@ -128,10 +147,10 @@ function Form1() {
               required
         />
          <br />
-        <label htmlFor="lname">Govt/Private</label>
-        <br />
+        <label style={{ width:"120px",margin:"10px 10px"}} htmlFor="lname">Govt/Private</label>
+        
         <input
-          style={{ width:"500px" }}
+          style={{ width:"250px" }}
           className="input"
           type="text"
           //id="lname"
@@ -143,25 +162,11 @@ function Form1() {
               required
         />
          <br />
-        <label htmlFor="lname">Department</label>
-        <br />
+       
+        <label style={{ width:"120px",margin:"10px 10px"}} htmlFor="lname">Project Amount</label>
+        
         <input
-          style={{ width:"500px" }}
-          className="input"
-          type="text"
-          //id="lname"
-          //name="phone"
-          placeholder="Department"
-          name="dept"
-              onChange={handleChange}
-              value={data3.dept}
-              required
-        />
-         <br />
-        <label htmlFor="lname">Project Amount</label>
-        <br />
-        <input
-          style={{ width:"500px" }}
+          style={{ width:"250px" }}
           className="input"
           type="number"
           //id="lname"
@@ -172,7 +177,24 @@ function Form1() {
               value={data3.amount}
               required  />
         
-        <br />
+        <br/>
+        <label style={{ width:"120px",margin:"10px 10px"}} htmlFor="lname">Department</label>
+        
+        <input
+          style={{ width:"250px" }}
+          className="input"
+          type="text"
+          //id="lname"
+          //name="phone"
+          placeholder="CSE / ME / CE / EEE / EC ....."
+          name="Department"
+             
+              value={data3.Department}
+              onChange={handleChange}
+              required
+        />
+         
+         <br />
         <br />
         <button  onClick={handleSub}>Submit</button>
         <br /><br />

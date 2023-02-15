@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import imh1 from "../../images/logomits.png"
 import './Home2.css';
 import verify from "./verify.png"
-
+import fdpic from "./fdpic.jpeg"
 
 export default function Home2() {
   const slogout=()=>{
@@ -34,7 +34,7 @@ return (
    <div className='mask'> 
   <Row>
     <Col>
-    <MDBCard style={{ width: '22rem',marginLeft:'40%',marginTop:'50px' }}>
+    <MDBCard style={{ width: '22rem',marginLeft:'30%',marginTop:'40px',height:"390px"}}>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
         <MDBCardImage src={verify}  width="90%" fluid alt='...' />
         <a>
@@ -46,16 +46,35 @@ return (
         <MDBCardText>
         Verify Publication details
         </MDBCardText>
-        <MDBBtn href='/ApprovePublication'>verify  </MDBBtn><br/><br/>
-        {/* <MDBBtn href='/form-3'>Show list</MDBBtn> */}
+        <MDBBtn href='/ApprovePublication'>verify  </MDBBtn>
+
       </MDBCardBody>
     </MDBCard>
   </Col>
-  
-   
+  <Col>
+    <MDBCard style={{ width: '22rem',marginLeft:'20%',marginTop:'40px',height:"390px" }}>
+      <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
+        <MDBCardImage src={fdpic} fluid alt='...' />
+       
+        <a>
+          <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
+        </a>
+      </MDBRipple>
+      <MDBCardBody>
+        <MDBCardTitle>Funded Projects & consultancy</MDBCardTitle>
+        <MDBCardText>
+        Store the details of funded projects and consultancy details
+        </MDBCardText>
+        <MDBBtn href='form-1'>add new</MDBBtn>
+        &nbsp; &nbsp; &nbsp; 
+        <MDBBtn href='/ListFP'>Show list</MDBBtn>
+      </MDBCardBody>
+    </MDBCard>
+  </Col>
   </Row>
+  <br/>  <br/>
   </div>
-  
+  <br/>  <br/>
   </div>
   
 );

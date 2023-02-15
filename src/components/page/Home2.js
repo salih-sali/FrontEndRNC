@@ -88,9 +88,9 @@ return (
         </a>
       </MDBRipple>
       <MDBCardBody>
-        <MDBCardTitle>Funded Projects</MDBCardTitle>
+        <MDBCardTitle>Funded Projects & consultancy</MDBCardTitle>
         <MDBCardText>
-          Immediate reciept generation of funded projects based on certain criterias
+          Store the details of funded projects and consultancy details
         </MDBCardText>
         <MDBBtn href='form-1'>add new</MDBBtn>
         <br/><br/>

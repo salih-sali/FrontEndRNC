@@ -58,9 +58,9 @@ function Form4() {
   return (
     
     <div className="signupParentDiv">
-    <h3 >enter the details of event..</h3>
+    <h3 >Enter the Details of Event</h3>
       <form >
-        <label>Name of event</label>
+        <label style={{margin:"10px 0px 0px 0px"}}>Name of event</label>
         <br />
         <input style={{ width:"500px" }}
           className="input"
@@ -78,7 +78,7 @@ function Form4() {
           
         />
         <br />
-        <label htmlFor="fname">venue</label>
+        <label style={{margin:"10px 0px 0px 0px"}} htmlFor="fname">venue</label>
         <br />
         <input
          style={{ width:"500px" }}
@@ -95,7 +95,7 @@ function Form4() {
           
         />
         <br />
-        <label htmlFor="lname">Organized by</label>
+        <label style={{margin:"10px 0px 0px 0px"}} htmlFor="lname">Organized by</label>
         <br />
         <input
          style={{ width:"500px" }}
@@ -112,10 +112,10 @@ function Form4() {
           
         />
          <br />
-        <label htmlFor="lname">Date of event</label>
-        <br />
+        <label style={{margin:"20px 10px 0px 10px"}} htmlFor="lname">Date of event</label>
+        
         <input
-          style={{ width:"500px" }}
+          style={{ width:"120px" }}
           className="input"
           type="text"
           //id="lname"
@@ -126,11 +126,11 @@ function Form4() {
               value={data4.date}
               required
         />
-         <br />
-        <label htmlFor="lname">Time</label>
-        <br />
+         
+        <label style={{margin:"10px 10px 0px 30px"}} htmlFor="lname">Time</label>
+        
         <input
-          style={{ width:"500px" }}
+          style={{ width:"130px" }}
           className="input"
           type="text"
           //id="lname"
@@ -143,7 +143,7 @@ function Form4() {
         />
 
 <br />
-        <label htmlFor="lname">Source</label>
+        <label style={{margin:"10px 0px 0px 0px"}} htmlFor="lname">Source</label>
         <br />
         <input
           style={{ width:"500px" }}
@@ -155,7 +155,7 @@ function Form4() {
           name="source"
               onChange={handleChange}
               value={data4.source}
-              required
+              
         />
         
         <br />
