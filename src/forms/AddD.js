@@ -5,9 +5,11 @@ import { Link, useNavigate } from "react-router-dom";
 
 
 function AddD() {
+
+  
     const [data2, setData2] = useState({
 		
-		Year: 0,
+		AcademicYear:"",
     Title:"",
     Faculties:"",
     Type:"",
@@ -61,12 +63,12 @@ function AddD() {
         <div className="ParentDiv">
         <h3 style={{ padding:"20px"}}>Enter the details of published papers only..!!</h3>
         
-          <form >
+          <form onSubmit={handleSub}>
             
             <label htmlFor="fname"> Title </label>
             &nbsp;
             <input
-             style={{ width:"670px" , height:"24px"}}
+             style={{ width:"760px" , height:"24px"}}
               className="input"
               type="text"
               id="fname"
@@ -77,20 +79,24 @@ function AddD() {
               value={data2.Title}
               required
             />&nbsp;&nbsp;
-            <label>Year</label>
-            &nbsp;
-           <input style={{ width:"70px",height:"24px" }}
-             className="input"
-             type="Number"
-             //id="fname"
-             //name="name"
-             placeholder="Year"
-             name="Year"
-             onChange={handleChange}
-             value={data2.Year}
-             required
-           />
-           
+<br/>
+<br/>
+<label htmlFor="lname">Name of publication</label>
+            &nbsp;&nbsp;
+            <input
+              style={{ width:"640px" , height:"24px" }}
+              className="input"
+              type="text"
+              //id="lname"
+              //name="phone"
+              placeholder="enter the name"
+              name="Name"
+              onChange={handleChange}
+              value={data2.Name}
+              required
+            />&nbsp;&nbsp;
+
+            
             <br /> <br />
             <label htmlFor="lname">Faculties</label>
             &nbsp;&nbsp;
@@ -109,21 +115,21 @@ function AddD() {
             />
                
                <br /><br/>
-            <label htmlFor="lname">Name of publication</label>
-            &nbsp;&nbsp;
-            <input
-              style={{ width:"419px" , height:"24px" }}
-              className="input"
-              type="text"
-              //id="lname"
-              //name="phone"
-              placeholder="enter the name"
-              name="Name"
-              onChange={handleChange}
-              value={data2.Name}
-              required
-            />&nbsp;&nbsp;
 
+               <label>Academic Year  (eg: 2022-2023 ) :&nbsp; </label>
+            &nbsp;
+           <input style={{ width:"200px",height:"24px" }}
+             className="input"
+             type="text"
+             //id="fname"
+             //name="name"
+             placeholder="YYYY-YYYY"
+             name="AcademicYear"
+             onChange={handleChange}
+             value={data2.AcademicYear}
+             required
+           />
+           &nbsp;&nbsp;&nbsp;
             <label htmlFor="lname">Type</label>
             &nbsp;
             <select
@@ -132,7 +138,7 @@ function AddD() {
               <option value = "journel">Journal</option>
               <option value = "conference">Conference</option>
               <option value = "publisher of book">Publisher of book</option>
-
+              
             </select>
             
             <br/> <br />
@@ -198,12 +204,9 @@ function AddD() {
             &nbsp;&nbsp;
             <select
             style={{width:"200px" , height:"24px"}} className= "input" name='Branch' onChange={handleChange} value = {data2.Branch} required>
-              <option value = ''>Choose the Branch</option>
-              <option value = "CSE">CSE</option>
-              <option value = "EEE">EEE</option>
-              <option value = "CE">CE</option>
-              <option value = "ME">ME</option>
-              <option value = "ECE">ECE</option>
+              <option value=''>Select Branch</option>
+              { <option value = {localStorage.branch} >{localStorage.branch}</option>}
+              
             </select>
             
             <br/>
@@ -211,7 +214,7 @@ function AddD() {
             
             <div className='move'>
             <button className="btn1 button2" onClick={q}>Cancel</button>
-             <button  className="btn1 button1 " onClick={handleSub}>Submit</button>
+             <button  className="btn1 button1 " type='submit'>Submit</button>
              </div>
            
           </form>

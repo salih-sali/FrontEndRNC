@@ -25,8 +25,8 @@ const cols = [
 ]
 console.log(1)
 
-const newArray = listOfUsers.map(({title,name,agency,GoP,year,amount,dept}) => ({title,name,agency,GoP,year,amount,dept}));
-console.log(newArray);
+//const newArray = listOfUsers.map(({title,name,agency,GoP,year,amount,dept}) => ({title,name,agency,GoP,year,amount,dept}));
+//console.log(newArray);
 
 
 // const title="Mongto"  ###########can be used
@@ -34,43 +34,60 @@ const handleS = async (e) => {
     e.preventDefault()
     // try {
         
-        axios.get("http://34.100.147.79:3001/RNC/getFP").then((response) => {
+    if(localStorage.role==='M') 
+       axios.post("http://localhost:3001/RNC/getFP",{dept:localStorage.branch}) //for member view
+       .then((response) => {
+        console.log(response)
             if(response.data.status==="FAILED")
                 navigate('/home',{replace:true})
-            
-            setListOfUsers(response.data.data);
+            console.log(response)
+            setListOfUsers(response.data.usefuldetails);
             console.log(listOfUsers)
             //alert(response.data.message)
            // print_all()                     //all publications retreival
            
-          });}
+          });
 
+  if(localStorage.role==='A') 
+     axios.post("http://localhost:3001/RNC/getFP",{}) //for admin
+          .then((response) => {
+           console.log(response)
+               if(response.data.status==="FAILED")
+                   navigate('/home',{replace:true})
+               console.log(response)
+               setListOfUsers(response.data.usefuldetails);
+               console.log(listOfUsers)
+               //alert(response.data.message)
+              // print_all()                     //all publications retreival
+              
+             });
+            }
 const q=()=>{
     navigate('/home',{replace:true}) 
     }
- const handleSq= async (e) => {
-            e.preventDefault()
-             try {
-        const url = "http://34.100.147.79:3001/RNC/getFP";
-        //const { data: res } = await axios.post(url, {title : title})  ### must be post 
-        axios.get(url, data4).then((response) => {
-            if(response.data.status==="FAILED")
-            navigate('/home',{replace:true})
-            setListOfUsers(response.data.data);
-            console.log(listOfUsers)                //required ones
-          })
-        //navigate("/sign-in")
-        //console.log(res.message)
+//  const handleSq= async (e) => {
+//             e.preventDefault()
+//              try {
+//         const url = "http://localhost:3001/RNC/getFP";
+//         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
+//         axios.get(url, data4).then((response) => {
+//             if(response.data.status==="FAILED")
+//             navigate('/home',{replace:true})
+//             setListOfUsers(response.data.data);
+//             console.log(listOfUsers)                //required ones
+//           })
+//         //navigate("/sign-in")
+//         //console.log(res.message)
     
-    } catch (error) {
-        if (
-            error.response &&
-            error.response.status >= 400 &&
-            error.response.status <= 500
-        ) {
-            setError(error.response.data.message)
-        }
-    }}
+//     } catch (error) {
+//         if (
+//             error.response &&
+//             error.response.status >= 400 &&
+//             error.response.status <= 500
+//         ) {
+//             setError(error.response.data.message)
+//         }
+//     }}
     
     function handleSChange(e) {
         setName1(e.target.value);
@@ -89,7 +106,7 @@ const q=()=>{
 <h1 className='search'>  Funded Project Details</h1>    <br/>
 <form>
 <h5>
-   Click to view the details of Funded Projects
+   Click to view the details of Funded Projects<br/>
     </h5>
     <button className="btn21 button21" onClick={handleS}>View all</button>&nbsp;
     <button className="btn21 button22" onClick={q}>Home</button><br/><br/>
@@ -98,16 +115,17 @@ const q=()=>{
 
 <div style={{margin:"45px"}}>
              <ReactFlexyTable 
-             data={newArray} 
+             data={listOfUsers} 
              filterable 
              sortable
       pageSizeOptions={[5,10,25,50,100,250,500]}
       globalSearch
       downloadExcelProps={downloadExcelProps}
       showExcelButton
+      className='my-table'
      // columns={cols}
       />
-            </div>
+         <br/><br/><br/>  <br/></div>
         
 <br/></div>
     )

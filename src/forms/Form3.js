@@ -9,7 +9,7 @@ import axios from 'axios';
 //fee reimbursement
 
 function Form3() {
-
+  
   const [data, setData] = useState({
     studentnames: '',
         name: '',
@@ -17,7 +17,8 @@ function Form3() {
         totalfee: 0,
         from: '',
         type: '',
-        institute: ''
+        institute: '',
+        branch: ''
   })
 
   const handleChange = (e) => {
@@ -45,7 +46,7 @@ const navigate =useNavigate();
     // console.log("amount : "+amount)
     console.log(data)
     try{
-      const url = "http://34.100.147.79:3001/RNC/reimbursment";
+      const url = "http://localhost:3001/RNC/reimbursment";
       const {data: res} = await axios.post(url,data)
       alert(res.message)
 
@@ -61,62 +62,55 @@ const navigate =useNavigate();
   return (
     <div> 
       
-    <div className="signupParentDiv">
-    <h3 >Enter the details of fee to be reimbursed</h3>
+    <div style={{ width:"700px" }} className="signupParentDiv">
+    <h3  style={{ margin:"5px 0px 20px 60px"  }} >Enter the details of fee to be reimbursed</h3>
       <form onSubmit={handleSub}>
-      <br />
+      
         <label htmlFor="fname">Name of student</label>
-        <br />
+        
         <input
-         style={{ width:"500px" }}
+         style={{ width:"500px" ,margin:"5px 10px 5px 30px"}}
           className="input"
           type="text"
           id="fname"
           name="studentnames"
-          placeholder="Enter the name"
+          placeholder="Enter the Students name"
           onChange={handleChange}
+          required
         />
          <br />
         <label htmlFor="fname">Faculty in charge</label>
-        <br />
+        
         <input
-         style={{ width:"500px" }}
+         style={{ width:"500px",margin:"5px 10px 5px 30px" }}
           className="input"
           type="text"
           id="fname"
           name="name"
           placeholder="Enter the faculty name"
           onChange={handleChange}
+          required
         />
          <br />
-        <label htmlFor="fname">Year</label>
-        <br />
-        <input
-         style={{ width:"500px" }}
-          className="input"
-          type="number"
-          id="fname"
-          name="year"
-          placeholder="Enter the year"
-          onChange={handleChange}
-        />
+        
 
-<br />
+
         <label htmlFor="fname">Type Of Program</label>
-        <br />
+        
         <input
-         style={{ width:"500px" }}
+         style={{ width:"500px",margin:"5px 10px 10px 30px" }}
           className="input"
           type="text"
           id="fname"
           name="type"
           placeholder="Enter the type"
           onChange={handleChange}
+          required
         />
         <br/>
-        <label>Fee</label>
-        <br />
-        <input style={{ width:"500px" }}
+        <label>Amount</label>
+        
+        <input style={{ width:"170px",margin:"5px 30px 10px 10px" }}
           className="input"
           type="number"
           //id="fname"
@@ -124,51 +118,83 @@ const navigate =useNavigate();
           placeholder="Enter the fee"
           //value={fee}
           onChange={handleChange}
-          
+          required
+        />
+
+
+        <label>Reimbursed amount</label>
+        
+        <input style={{ width:"212px",margin:"5px 10px 10px 10px"  }}
+          className="input"
+          type="number"
+          //id="fname"
+          name="reimbursed"
+          placeholder="Enter the reimbursed amount"
+          //value={fee}
+          onChange={handleChange}
+          required
         />
  
-            <br />
-        <label htmlFor="fname">Name of Institute</label>
-        <br />
+            
+        <br/> 
+        <label htmlFor="fname">Year</label>
+        
         <input
-         style={{ width:"500px" }}
+         style={{ width:"170px",margin:"5px 35px 10px 30px"  }}
+          className="input"
+          type="number"
+          id="fname"
+          name="year"
+          placeholder="Enter the year"
+          onChange={handleChange}
+          required
+        />
+        <label>Branch</label>
+        <input style={{ width:"300px",margin:"5px 10px 10px 20px" }}
+          className="input"
+          type="text"
+          //id="fname"
+          name="branch"
+          placeholder="CSE, ME, EEE, ECE, CE, AI&DS, BSH ..."
+          //value={fee}
+          onChange={handleChange}   
+          required       
+        />
+        
+        <br />
+        <label htmlFor="fname">Name of Institute</label>
+      
+        <input
+         style={{ width:"500px" ,margin:"5px 10px 10px 20px" }}
           className="input"
           type="text"
           id="fname"
           name="institute"
           placeholder="Enter name of the institute"
           onChange={handleChange}
-        /><br/>  <br />
+          required
+        />
               <label htmlFor="fname">Type of institute</label>
-        
-        {/* <br />
-        <input
-         style={{ width:"500px" }}
-          className="input"
-          type="text"
-          id="fname"
-          name="from"
-          placeholder="NIT/IIT/GOVT/PVT"
-          onChange={handleChange}
-        /> */}
 
-&nbsp; &nbsp; 
-<select
-            style={{width:"150px"}} className= "input" onChange={handleChange}
+
+            <select
+            style={{width:"150px" ,margin:"5px 20px 0px 25px" }} className= "input" onChange={handleChange}
             name="from" required>
-              
+              <option value = "">Choose The Type</option>
               <option value = "NIT">NIT</option>
               <option value = "IIT">IIT</option>
               <option value = "GOVT">GOVT</option>
               <option value = "PVT">PVT</option>
-
+              <option value = "Other">Other</option>
             </select>
 
+        
+
         <br />
-        <br />
-        <button type='submit'>Submit</button>
-        <br /><br />
-        <button onClick={q}>Cancel</button>
+
+        <button style={{ width:"100px",margin:"0px 25px 5px 400px"  }} onClick={q}>Cancel</button>
+       
+        <button style={{ width:"100px" }} type='submit'>Submit</button> 
       
       </form>
     </div>

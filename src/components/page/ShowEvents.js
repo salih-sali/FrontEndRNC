@@ -26,8 +26,8 @@ const cols = [
 console.log(1)
 
 
-const newArray = listOfUsers.map(({eventN,venue,date,time,org,source}) => ({venue,eventN,date,time,org,source}));
-console.log(newArray);
+//const newArray = listOfUsers.map(({eventN,venue,date,time,org,source}) => ({venue,eventN,date,time,org,source}));
+// console.log(newArray);
 
 
 // const title="Mongto"  ###########can be used
@@ -35,11 +35,11 @@ const handleS = async (e) => {
     e.preventDefault()
     // try {
         
-        axios.get("http://34.100.147.79:3001/RNC/getEvents").then((response) => {
+        axios.get("http://localhost:3001/RNC/getEvents").then((response) => {
              if(response.data.status==="FAILED")
             navigate('/home',{replace:true})
-
-            setListOfUsers(response.data.data);
+            console.log(response.data.usefuldetails)
+            setListOfUsers(response.data.usefuldetails);
          
             console.log(listOfUsers)
             //alert(response.data.message)
@@ -54,7 +54,7 @@ const handleS = async (e) => {
  const handleSq= async (e) => {
             e.preventDefault()
              try {
-        const url = "http://34.100.147.79:3001/RNC/getEvents";
+        const url = "http://localhost:3001/RNC/getEvents";
         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
         axios.post(url, data4).then((response) => {
             setListOfUsers(response.data.data);
@@ -113,7 +113,7 @@ const handleS = async (e) => {
 <div style={{margin:"45px"}}>
   
   <ReactFlexyTable 
-             data={newArray} 
+             data={listOfUsers} 
              filterable 
              sortable
              nonSortCols={['source']} 
@@ -121,8 +121,10 @@ const handleS = async (e) => {
       globalSearch
       downloadExcelProps={downloadExcelProps}
       showExcelButton
-      additionalCols={additionalCols}/>
-
+      additionalCols={additionalCols}
+      className='my-table'
+      />
+<br/><br/><br/><br/>
   </div>
 </div>
     )

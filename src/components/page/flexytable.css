@@ -4,7 +4,11 @@
     --rft-button-color: #061e2c;
     --rft-even-row-color:white;
   }
-
+  .my-table tr {
+    color: black;
+    font-weight: bold;
+    background-color: aliceblue;
+  }
   .rft-gs-input {
     width: 22% !important;
     padding: 7px !important;

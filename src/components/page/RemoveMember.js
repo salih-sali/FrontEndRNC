@@ -116,10 +116,12 @@ Click to view the details of Members
                 globalSearch
                 downloadExcelProps={downloadExcelProps}
                 showExcelButton
-                additionalCols={additionalCols}/>
+                additionalCols={additionalCols}
+                className='my-table'
+                />
 
         </div>
-        
+        <br/><br/>
 <br/></div>
     )
     }

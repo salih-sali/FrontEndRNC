@@ -50,33 +50,28 @@ function ApprovePublication() {
  const handleS= async (e) => {
            e.preventDefault()
             
-            axios.post("http://34.100.147.79:3001/RNC/public",{Branch: branch}).then((response) => {
-                console.log(response.data)
+            axios.post("http://localhost:3001/RNC/public",{Branch: branch}).then((response) => {
+               // console.log(response.data)
                 if(response.data.status==="FAILED")
                navigate('/home',{replace:true})
                 setListOfUsers(response.data.data);
                 //console.log(response.data)
                  //navigate("/home")
-                  console.log(response.data.message)  
+                  console.log(response.data)  
                 alert(response.data.message)
                 
               }); 
             }
 
-         const newArray = listOfUsers.map(({Title,Faculties,Branch,Affiliated, ImpactFactor,Name,SubType,Type,Year}) => ({Affiliated, Branch,Faculties,ImpactFactor,Name,SubType,Title,Type,Year}));
-               console.log(newArray);
-                      
-                    
-           
-            
-       
-              // var ab="name"
+            const newArray = listOfUsers.map(({Title,Name,Faculties,Details,Branch,Type,SubType,ImpactFactor,AcademicYear,Affiliated}) => ({Title,Name,Faculties,Details,Branch,Type,SubType,ImpactFactor,AcademicYear,Affiliated}));
+            console.log(newArray);
+                // var ab="name"
               // var url = "http://www.google.comsearch?q="+{ab};
               //const id="abc"
              // <a href={'https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q='  +id+ '&btnG='} target="_blank">click here</a>
    
    
-             const url = "http://34.100.147.79:3001/RNC/verified"; //link of api,which delete from temp table n store details to rejected table  
+             const url = "http://localhost:3001/RNC/verified"; //link of api,which delete from temp table n store details to rejected table  
  
              const downloadExcelProps = {
                    type: 'filtered',
@@ -93,7 +88,8 @@ function ApprovePublication() {
                          
                            axios.post(url, {"Title": newArray.Title,"Confirm": "Yes"}).then((response) => {
                       console.log("approve :"+newArray.Title) 
-                      alert(response.data.message)    
+                      alert(response.data.message) 
+                      navigate('/home',{replace:true}) 
                         //  e.preventDefault() no need
                         })
               
@@ -109,7 +105,8 @@ function ApprovePublication() {
                      
                        axios.post(url, {"Title":newArray.Title,"Confirm": "No"}).then((response) => {
                   console.log("Rejecting :"+newArray.Title) 
-                  alert(response.data.message)    
+                  alert(response.data.message)  
+                  navigate('/home',{replace:true})  
                        //  e.preventDefault() no need
                     })
           
@@ -122,7 +119,7 @@ function ApprovePublication() {
              return (
       <div>
 <div className='details'>
-<h1 className='search'>Verification of publication details </h1>
+<h1 >Verification of publication details </h1>
 <form>
 <h5 >
     View all non-verified publications
@@ -161,9 +158,11 @@ Enter name of author to search on Scopus &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&n
       sortable
      pageSizeOptions={[5,10,25,50,100,250,500]}
       globalSearch
-      downloadExcelProps={downloadExcelProps}
-      showExcelButton
-      additionalCols={additionalCols}/>
+      //downloadExcelProps={downloadExcelProps}
+      //showExcelButton
+      additionalCols={additionalCols}
+      className='my-table'
+      />
    
        
 </div>

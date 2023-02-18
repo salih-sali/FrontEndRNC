@@ -6,9 +6,12 @@ import Axios from 'axios'
 //import axios from 'axios';
 
 const Data = () => {
+
      function pdfGenerator(){
+        
         try {
-            const url = "http://34.100.147.79:3001/RNC/return";
+            
+            const url = "http://localhost:3001/RNC/return";
             Axios.get(url).then((res) =>{
             console.log(res.data)
             alert(res.data.message)
@@ -25,8 +28,12 @@ const Data = () => {
             doc.setFontSize(17).setFont(undefined,'normal')
             doc.text(20,300,res.data.documentation,{maxWidth:750})
             doc.setFontSize(17)
-            doc.text(500,350,res.data.name)
+            doc.text(500,400,res.data.name)
+            doc.setFontSize(14)
+            doc.text(500,415,res.data.branch+" - Department")
+            doc.text(500,430,"(Faculty in charge)")
             doc.save("Fee Reimbursed.pdf");
+            window.close();
             })
             
             

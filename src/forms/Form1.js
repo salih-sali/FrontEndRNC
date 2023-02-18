@@ -6,18 +6,19 @@ import { Link, useNavigate } from "react-router-dom";
 //funded prject
 
 function Form1() {
-
+  const departments = ['CSE','EEE','ECE','ME','CE','AI&DS','BSH']
   const [data3, setData3] = useState({
-		Type:"",
+		type:"",
 		title: "",
-    Academic_Year: "",
+    AcademicYear: "",
 		agency: "",
 		name: "",
     GoP: "",
 		amount: "",
-    Department:"",
-    Status:""
+    dept:"",
+    status:""
 	});
+
   
 	const [error, setError] = useState("");
 	const navigate = useNavigate();
@@ -30,7 +31,7 @@ function Form1() {
 	const handleSub = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://34.100.147.79:3001/RNC/addFP";
+			const url = "http://localhost:3001/RNC/addFP";
 			const { data: res } = await axios.post(url, data3);
 			navigate("/home");
 			console.log(res.message);
@@ -58,36 +59,36 @@ function Form1() {
     
     <div   className="signupParentDiv">
     <h5 >Enter the details of Funded Projects / Conultancy ..!</h5>
-      <form >
+      <form onSubmit={handleSub}>
         
      
       <select
-            style={{width:"200px" , height:"24px" , margin:"10px 10px"}} className= "input" name='Type' onChange={handleChange} value = {data3.Type} required>
+            style={{width:"200px" , height:"24px" , margin:"10px 10px"}} className= "input" name='type' onChange={handleChange} value = {data3.type} required>
               <option value = ''>Choose the Type</option>
               <option value = "Funded Project">Funded Project</option>
               <option value = "Conultancy">Conultancy</option>
           
             </select>
             <select
-            style={{width:"200px" , height:"24px" , margin:"10px 20px"}} className= "input" name='Status' onChange={handleChange} value = {data3.Status} required>
+            style={{width:"200px" , height:"24px" , margin:"10px 20px"}} className= "input" name='status' onChange={handleChange} value = {data3.status} required>
               <option value = ''>select the status</option>
               <option value = "Requested">Requested</option>
               <option value = "Approved">Approved</option>
               <option value = "Completed">Completed</option>
           
             </select><br/>
-            <label style={{ width:"240px" }}>Academic Year  (eg: 2019-2023 )</label>
+            <label style={{ width:"240px" }}>Academic Year  (eg: 2022-2023 )</label>
         
         <input style={{ width:"120px" }}
           className="input"
           type="texts"
           //id="fname"
-          name="Academic_Year"
+          name="AcademicYear"
           
          //value={year}
          placeholder="YYYY-YYYY"
           onChange={handleChange}
-          value={data3.Academic_Year}
+          value={data3.AcademicYear}
           required
 
             //onChange={(e)=>setYear(e.target.value)}
@@ -147,15 +148,15 @@ function Form1() {
               required
         />
          <br />
-        <label style={{ width:"120px",margin:"10px 10px"}} htmlFor="lname">Govt/Private</label>
+        <label style={{ width:"150px",margin:"10px 10px"}} htmlFor="lname">Govt/Private/Other</label>
         
         <input
-          style={{ width:"250px" }}
+          style={{ width:"220px" }}
           className="input"
           type="text"
           //id="lname"
           //name="phone"
-          placeholder="Govt or PVT"
+          placeholder="Govt or PVT or Other"
           name="GoP"
               onChange={handleChange}
               value={data3.GoP}
@@ -163,10 +164,10 @@ function Form1() {
         />
          <br />
        
-        <label style={{ width:"120px",margin:"10px 10px"}} htmlFor="lname">Project Amount</label>
+        <label style={{ width:"120px",margin:"10px 35px 10px 10px"}} htmlFor="lname">Project Amount</label>
         
         <input
-          style={{ width:"250px" }}
+          style={{ width:"210px" }}
           className="input"
           type="number"
           //id="lname"
@@ -178,9 +179,9 @@ function Form1() {
               required  />
         
         <br/>
-        <label style={{ width:"120px",margin:"10px 10px"}} htmlFor="lname">Department</label>
+        <label style={{ margin:"0px 20px 10px 10px" }} htmlFor="lname">Branch</label>
         
-        <input
+        {/* <input
           style={{ width:"250px" }}
           className="input"
           type="text"
@@ -192,13 +193,19 @@ function Form1() {
               value={data3.Department}
               onChange={handleChange}
               required
-        />
+        /> */}
+        <select
+            style={{width:"150px" , height:"24px" , margin:"10px 25px 10px 0px" }} className= "input" name='dept' onChange={handleChange} value = {data3.dept} required>
+               <option value = ''>Choose the Branch</option>
+
+              {localStorage.role==='A' ? departments.map((dep,index)=> <option value = {dep} >{dep}</option>) : <option value = {localStorage.branch} >{localStorage.branch}</option>}
+          </select>
          
-         <br />
+         
         <br />
-        <button  onClick={handleSub}>Submit</button>
-        <br /><br />
-        <button  onClick={q}>Cancel</button>
+        <button style={{ width:"100px",margin:"0px 25px 10px 300px"  }} onClick={q}>Cancel</button>
+       
+        <button style={{ width:"100px" }}  type='submit'>Submit</button>
       
       </form>
     </div>

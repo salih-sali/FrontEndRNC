@@ -25,8 +25,8 @@ function ViewProfile() {
         { header: 'Journal Name', key: 'Name' },
         { header: 'MITS Affiliation', key: 'Affiliated'}
       ]
-//       const newArray = listOfUsers.map(({Title,Type, Year,Name,Faculties,Affiliated}) => ({Title, Type,Year,Name,Faculties,Affiliated}));
-// console.log(newArray);
+      const newArray = listOfUsers.map(({Title,Faculties,Affiliated, ImpactFactor,Name,SubType,Type,AcademicYear}) => ({Title,Faculties,Affiliated, ImpactFactor,Name,SubType,Type,AcademicYear}));
+      console.log(newArray);
 
      const q=()=>{
                navigate('/home',{replace:true}) 
@@ -38,13 +38,14 @@ function ViewProfile() {
             console.log("APPROVED ")
 
             e.preventDefault()
-       const url = "http://34.100.147.79:3001/RNC//viewprofileapp"; // url to fetch details from permanent table
+       const url = "http://localhost:3001/RNC/viewprofileapp"; // url to fetch details from permanent table
        //const { data: res } = await axios.post(url, {title : title})  ### must be post 
        axios.post(url,{name:name,branch:branch}).then((response) => {
+      console.log(response)
         if(response.data.status==="FAILED")
         navigate('/home',{replace:true})
 
-           setListOfUsers(response.data.data);
+           setListOfUsers(response.data.approved);
            console.log(response.data)
            alert(response.data.message) 
            //alert(response.data.message)               //required ones
@@ -53,7 +54,7 @@ function ViewProfile() {
         else if(choose==="rejected"){
             console.log("REJECTED...!")
             e.preventDefault()
-            const url = "http://34.100.147.79:3001/RNC/viewprofilereject"; //url to fetch details from rejected table
+            const url = "http://localhost:3001/RNC/viewprofilereject"; //url to fetch details from rejected table
            // const { data: res } = await axios.post(url, {title : title})  // must be post 
             axios.post(url,{name:name,branch:branch}).then((response) => {
               if(response.data.status==="FAILED")
@@ -98,16 +99,17 @@ const downloadExcelProps = {
 
       <ReactFlexyTable 
      
-      data={listOfUsers}
+      data={newArray}
       filterable 
       sortable
       pageSizeOptions={[5,10,25,50,100,250,500]}
       globalSearch
       downloadExcelProps={downloadExcelProps}
       showExcelButton
-      columns={columns1}
+      //columns={columns1}
+      className='my-table'
       />
-
+<br/><br/><br/><br/><br/><br/><br/><br/>
        </div>
     </div>
   )

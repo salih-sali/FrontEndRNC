@@ -9,7 +9,7 @@ import "react-flexy-table/dist/index.css"
 import styles from "./flexytable.css"
 
 function ShowFee() {
-  const navigate = useNavigate()
+const navigate = useNavigate()
 const [listOfUsers, setListOfUsers] = useState([]);
 const [data4, setData4] = useState([])
 const [name1,setName1]=useState("title")
@@ -23,7 +23,7 @@ const cols = [
 ]
 console.log(1)
 
-const newArray = listOfUsers.map(({title,name,agency,GoP,year,amount,dept}) => ({title,name,agency,GoP,year,amount,dept}));
+//const newArray = listOfUsers.map(({title,name,agency,GoP,year,amount,dept}) => ({title,name,agency,GoP,year,amount,dept}));
 
 const downloadExcelProps = {
         type: 'filtered',
@@ -35,8 +35,11 @@ const handleS = async (e) => {
     e.preventDefault()
     // try {
         
-        axios.get("http://34.100.147.79:3001/RNC/getAll").then((response) => {
-            setListOfUsers(response.data.data);
+        axios.get("http://localhost:3001/RNC/getAll").then((response) => {
+          if(response.data.status==="FAILED")
+          navigate('/home',{replace:true})
+          
+            setListOfUsers(response.data.usefuldetails);
 
             console.log(listOfUsers)
             //alert(response.data.message)
@@ -54,7 +57,7 @@ const handleS = async (e) => {
         const url = "http://34.100.147.79:3001/RNC/getAll";
         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
         axios.post(url, data4).then((response) => {
-            setListOfUsers(response.data.data);
+            setListOfUsers(response.data.usefuldetails);
             console.log(listOfUsers)                //required ones
           })
         //navigate("/sign-in")
@@ -99,9 +102,10 @@ const handleS = async (e) => {
       globalSearch
       downloadExcelProps={downloadExcelProps}
       showExcelButton
-      columns={cols}
+      //columns={cols}
+      className='my-table'
       />
-          </div>
+          <br/> </div>
         
 <br/></div>
     )

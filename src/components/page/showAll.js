@@ -18,14 +18,17 @@ const [error, setError] = useState("");
 const cols = [
   { title: 'Title', field: 'Title' },
   { title: 'Author', field: 'Faculties' },
-  { title: 'Year', field: 'Year', type: 'Number' },
+  { title: 'Academic Year', field: 'AcademicYear' },
   { title: 'Journal Name', field: 'Name'},
   { title: 'MITS affiliation',field: 'Affiliated'},
   { title: 'Type', field: 'Type'},
-  { title: 'Category', field: 'SubType'}
+  { title: 'Category', field: 'SubType'},
+  {title: 'Impact Factor', field: 'ImpactFactor'},
+  {title: 'Detais', field: 'Details'},
+  {title: 'Branch', field: 'Branch'},
 ]
 
-   const newArray = listOfUsers.map(({Title,Faculties,Details,Branch,Type,SubType, Year,Name,Affiliated}) => ({Title,Faculties,Details,Branch,Type,SubType, Year,Name,Affiliated}));
+   const newArray = listOfUsers.map(({Title,Name,Faculties,Details,Branch,Type,SubType,ImpactFactor,AcademicYear,Affiliated}) => ({Title,Name,Faculties,Details,Branch,Type,SubType,ImpactFactor,AcademicYear,Affiliated}));
 
 //console.log(newArray)
 
@@ -47,7 +50,7 @@ const handleLimit = async (e) => {
 
 const handleS = async (e) => {
     e.preventDefault()
-        axios.post("http://34.100.147.79:3001/RNC/retrieve",{}).then((response) => {
+        axios.post("http://localhost:3001/RNC/retrieve",{}).then((response) => {
           if(response.data.status==="FAILED")
         navigate('/home',{replace:true})
 
@@ -90,7 +93,7 @@ const q=()=>{
       }
       const downloadExcelProps = {
         type: 'filtered',
-        title: 'Funded Project Details',
+        title: 'Approved Publications Details',
         showLabel: true
       }
 
@@ -102,11 +105,11 @@ const q=()=>{
   <h5>Click to view all the publication details <button className="btn21 button21" onClick={handleS}>View all</button>&nbsp;
   </h5> 
   <br/>
-  <h5> View last &nbsp;<input style={{width:"40px"}} type="number" onChange={(e)=>{setLimit(e.target.value) } } />
+  {/* <h5> View last &nbsp;<input style={{width:"40px"}} type="number" onChange={(e)=>{setLimit(e.target.value) } } />
    &nbsp; year's the publication details  <button className="btn21 button21" onClick={handleLimit}>View </button>&nbsp;
-  </h5> 
+  </h5>  */}
 
-<br/>
+
     
     <button className="btn21 button22" onClick={q}>Home</button>
 <br/>
@@ -114,7 +117,7 @@ const q=()=>{
 
 
 
-<div style={{margin:"45px"}}>
+<div style={{margin:"30px"}}>
              <ReactFlexyTable 
              data={newArray} 
              filterable 
@@ -123,8 +126,10 @@ const q=()=>{
       globalSearch
       downloadExcelProps={downloadExcelProps}
       showExcelButton 
+      className='my-table'
+      //columns={cols}
       />
-        </div>
+        <br/> <br/><br/><br/><br/></div>
         
 <br/></div>
     )

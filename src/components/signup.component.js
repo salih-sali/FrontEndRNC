@@ -16,16 +16,16 @@ import imh1 from '../images/logomits.png'
 
  
 function SignUp() {
-  const [email,setEmailaddress] = useState('')
-  const [password,setPassword] = useState('')
-  const [name,setName] = useState('')
+  const departments = ['CSE','EEE','ECE','ME','CE','AI&DS','BSH']
+  
+  
  const [branch,setBranch] = useState('')
- const [dateOfBirth,setDateOfBirth] = useState('')
+
 
  //111111111111111111
  const [data, setData] = useState({
   name: '',
-  branch: '',
+  branch: ''.toUpperCase(),
   email: '',
   password: '',
   OCRid:''
@@ -93,7 +93,7 @@ const handleSelect=(e)=>{
 
     return (
 
-      <div>
+      <div className="backG">
       {/* <div className='navbar'> 
       <a href="https://mgmits.ac.in/">
          <img className="logo" src={imh1}></img></a>
@@ -188,7 +188,7 @@ const handleSelect=(e)=>{
         <div className="mb-3">
           <label>OCRid</label>
           <input
-            type="text"
+            type="number"
             className="form-control"
           
 							required
