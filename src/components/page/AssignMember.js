@@ -54,7 +54,7 @@ const handleS = async (e) => {
     e.preventDefault()
     // try {
         
-        axios.get("http://34.100.147.79:3001/RNC/getFaculties").then((response) => {
+        axios.get("http://localhost:3001/RNC/getFaculties").then((response) => {
 
         if(response.data.status==="FAILED")
                navigate('/home',{replace:true})
@@ -72,7 +72,7 @@ const q=()=>{
  const handleSq= async (e) => {
             e.preventDefault()
              try {
-        const url = "http://34.100.147.79:3001/RNC/getFaculties";
+        const url = "http://localhost:3001/RNC/getFaculties";
         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
         axios.post(url, data4).then((response) => {
             setListOfUsers(response.data.data);

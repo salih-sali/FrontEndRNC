@@ -43,7 +43,7 @@ const handleS = async (e) => {
             console.log(response)
             setListOfUsers(response.data.usefuldetails);
             console.log(listOfUsers)
-            //alert(response.data.message)
+            alert(response.data.message)
            // print_all()                     //all publications retreival
            
           });

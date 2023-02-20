@@ -42,7 +42,7 @@ const handleS = async (e) => {
             setListOfUsers(response.data.usefuldetails);
 
             console.log(listOfUsers)
-            //alert(response.data.message)
+            alert(response.data.message)
            // print_all()                     //all publications retreival
            
           });}
@@ -54,7 +54,7 @@ const handleS = async (e) => {
  const handleSq= async (e) => {
             e.preventDefault()
              try {
-        const url = "http://34.100.147.79:3001/RNC/getAll";
+        const url = "http://localhost:3001/RNC/getAll";
         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
         axios.post(url, data4).then((response) => {
             setListOfUsers(response.data.usefuldetails);

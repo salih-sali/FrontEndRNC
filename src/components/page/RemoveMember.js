@@ -26,7 +26,7 @@ const cols = [
 const newArray = listOfUsers.map(({name,email,branch,type}) => ({name,email,branch,type}));
 console.log(newArray);
 
-const url = "http://34.100.147.79:3001/RNC/remove";
+const url = "http://localhost:3001/RNC/remove";
  
              const downloadExcelProps = {
                    type: 'filtered',
@@ -58,7 +58,7 @@ const handleS = async (e) => {
     e.preventDefault()
     // try {
         
-        axios.get("http://34.100.147.79:3001/RNC/getMember").then((response) => {
+        axios.get("http://localhost:3001/RNC/getMember").then((response) => {
             setListOfUsers(response.data.data);
             console.log(listOfUsers)
             //alert(response.data.message)
@@ -72,7 +72,7 @@ const q=()=>{
  const handleSq= async (e) => {
             e.preventDefault()
              try {
-        const url = "http://34.100.147.79:3001/RNC/getMember";
+        const url = "http://localhost:3001/RNC/getMember";
         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
         axios.post(url, data4).then((response) => {
             setListOfUsers(response.data.data);

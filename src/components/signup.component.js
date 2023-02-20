@@ -48,7 +48,7 @@ const [error, setError] = useState("")
           console.log("correct email address format!")
           console.log(data)
           try {
-            const url = "http://34.100.147.79:3001/RNC/signup"
+            const url = "http://localhost:3001/RNC/signup"
             const { data: res } = await axios.post(url, {
               "name": data.name,
               "branch": data.branch,
@@ -138,7 +138,7 @@ const handleSelect=(e)=>{
             </select> */}
 
         <div className="mb-3">
-          <label>E-mail address</label>
+          <label>e-mail address  </label>
           <input
             type="email"
             className="form-control"
@@ -152,24 +152,7 @@ const handleSelect=(e)=>{
         </div> 
            
 
-        <div className="mb-3">
-          <label>Enter your branch</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="CSE / ME / CE / EEE / EC ....."
-            onChange={handleChange}
-							required
-              name='branch'
-            //2.value={emailaddress}
-            //onChange={(e)=>setEmailaddress(e.target.value)}
-          />
-        </div>
-        <div className="mb-3"  >
- 
-  
-</div>
-
+       
         <div className="mb-3">
           <label>Password</label>
           <input
@@ -185,11 +168,28 @@ const handleSelect=(e)=>{
           />
         </div>
 
+     
+      
+          {/* <input
+            type="text"
+            className="form-control"
+            placeholder="CSE / ME / CE / EEE / EC ....."
+            onChange={handleChange}
+							required
+              name='branch'
+            //2.value={emailaddress}
+            //onChange={(e)=>setEmailaddress(e.target.value)}
+          /> */}
+
+       
+       
+      
+
         <div className="mb-3">
           <label>OCRid</label>
           <input
             type="number"
-            className="form-control"
+            style={{width:"220px" , height:"30px" , margin:"0px 15px 0px 20px" }}
           
 							required
             placeholder="Enter here"
@@ -198,6 +198,12 @@ const handleSelect=(e)=>{
            // value={pass}
             //onChange={(e)=>setPass(e.target.value)}
           />
+           <select
+            style={{width:"170px" , height:"30px" , margin:"0px 0px 0px 20px" }}  name='branch' onChange={handleChange}  required>
+               <option value = ''>Choose the Branch</option>
+
+              {departments.map((dep,index)=> <option value = {dep} >{dep}</option>) }
+          </select>
         </div>
 
 

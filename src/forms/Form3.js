@@ -18,7 +18,7 @@ function Form3() {
         from: '',
         type: '',
         institute: '',
-        branch: ''
+        branch: ""
   })
 
   const handleChange = (e) => {
@@ -51,7 +51,7 @@ const navigate =useNavigate();
       alert(res.message)
 
      window.open('/Data',"_blank")
-     //navigate('/home')
+     navigate('/home')
     }catch(err){
       alert(err)
     }

@@ -17,9 +17,11 @@ const [error, setError] = useState("")
 
 	const handleSubmit = async (e) => {
 		e.preventDefault()
-    
+    var regex = /^[^\s@]+@mgits.ac.in$/;
+        var result = regex.test(email);
+        if(result == true){
 		try {
-			const url = "http://localhost:3001/RNC//forgot-password"
+			const url = "http://localhost:3001/RNC/forgot-password"
 			const { data: res } = await axios.post(url, {"email":email})
 			navigate("/sign-in")
       alert(res.message)
@@ -34,6 +36,10 @@ const [error, setError] = useState("")
 			}
 		}
 	}
+  else{
+    alert("wrong email address format ..!!\nplease enter your registered mgits mail id")
+}
+}
 
  const handleSub=(e)=>{
   
