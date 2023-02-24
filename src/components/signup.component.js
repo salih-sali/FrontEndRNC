@@ -17,9 +17,9 @@ import imh1 from '../images/logomits.png'
  
 function SignUp() {
   const departments = ['CSE','EEE','ECE','ME','CE','AI&DS','BSH']
+   
   
-  
- const [branch,setBranch] = useState('')
+ const [branch,setBranch] = useState('cse')
 
 
  //111111111111111111
