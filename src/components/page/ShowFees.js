@@ -35,7 +35,7 @@ const handleS = async (e) => {
     e.preventDefault()
     // try {
         
-        axios.get("http://localhost:3001/RNC/getAll").then((response) => {
+        axios.get("https://rnc-back-end-5zlfsmahea-el.a.run.app/RNC/getAll").then((response) => {
           if(response.data.status==="FAILED")
           navigate('/home',{replace:true})
           
@@ -54,7 +54,7 @@ const handleS = async (e) => {
  const handleSq= async (e) => {
             e.preventDefault()
              try {
-        const url = "http://localhost:3001/RNC/getAll";
+        const url = "https://rnc-back-end-5zlfsmahea-el.a.run.app/RNC/getAll";
         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
         axios.post(url, data4).then((response) => {
             setListOfUsers(response.data.usefuldetails);

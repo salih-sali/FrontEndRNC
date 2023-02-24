@@ -24,7 +24,7 @@ const cols = [
 const newArray = listOfUsers.map(({name,email,branch,type}) => ({name,email,branch,type}));
 console.log(newArray);
 
-const url = "http://localhost:3001/RNC/assignmember";
+const url = "https://rnc-back-end-5zlfsmahea-el.a.run.app/RNC/assignmember";
  
              const downloadExcelProps = {
                    type: 'filtered',
@@ -54,7 +54,7 @@ const handleS = async (e) => {
     e.preventDefault()
     // try {
         
-        axios.get("http://localhost:3001/RNC/getFaculties").then((response) => {
+        axios.get("https://rnc-back-end-5zlfsmahea-el.a.run.app/RNC/getFaculties").then((response) => {
 
         if(response.data.status==="FAILED")
                navigate('/home',{replace:true})
@@ -72,7 +72,7 @@ const q=()=>{
  const handleSq= async (e) => {
             e.preventDefault()
              try {
-        const url = "http://localhost:3001/RNC/getFaculties";
+        const url = "https://rnc-back-end-5zlfsmahea-el.a.run.app/RNC/getFaculties";
         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
         axios.post(url, data4).then((response) => {
             setListOfUsers(response.data.data);

@@ -16,12 +16,13 @@ const [error, setError] = useState("")
 
 
 	const handleSubmit = async (e) => {
-		e.preventDefault()
+		
     var regex = /^[^\s@]+@mgits.ac.in$/;
         var result = regex.test(email);
         if(result == true){
 		try {
-			const url = "http://localhost:3001/RNC/forgot-password"
+      e.preventDefault()
+			const url = "https://rnc-back-end-5zlfsmahea-el.a.run.app/RNC/forgot-password"
 			const { data: res } = await axios.post(url, {"email":email})
 			navigate("/sign-in")
       alert(res.message)
