@@ -35,7 +35,7 @@ const cols = [
 const handleLimit = async (e) => {
   e.preventDefault()
 
-      axios.post("http://localhost:3001/RNC/filter",{"time":limit}).then((response) => {
+      axios.post("https://rnc-back-end-5zlfsmahea-el.a.run.app/RNC/filter",{"time":limit}).then((response) => {
         if(response.data.status==="FAILED")
         navigate('/home',{replace:true})
 
@@ -50,7 +50,7 @@ const handleLimit = async (e) => {
 
 const handleS = async (e) => {
     e.preventDefault()
-        axios.post("http://localhost:3001/RNC/retrieve",{}).then((response) => {
+        axios.post("https://rnc-back-end-5zlfsmahea-el.a.run.app/RNC/retrieve",{}).then((response) => {
           if(response.data.status==="FAILED")
         navigate('/home',{replace:true})
 
@@ -68,7 +68,7 @@ const q=()=>{
 //  const handleSq= async (e) => {
 //             e.preventDefault()
 //              try {
-//         const url = "http://localhost:3001/RNC/retrieve";
+//         const url = "https://rnc-back-end-5zlfsmahea-el.a.run.app/RNC/retrieve";
 //         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
 //         axios.post(url, data4).then((response) => {
 //             setListOfUsers(response.data.data);

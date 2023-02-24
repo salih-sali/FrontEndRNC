@@ -38,7 +38,7 @@ function ViewProfile() {
             console.log("APPROVED ")
 
             e.preventDefault()
-       const url = "http://localhost:3001/RNC/viewprofileapp"; // url to fetch details from permanent table
+       const url = "https://rnc-back-end-5zlfsmahea-el.a.run.app/RNC/viewprofileapp"; // url to fetch details from permanent table
        //const { data: res } = await axios.post(url, {title : title})  ### must be post 
        axios.post(url,{name:name,branch:branch}).then((response) => {
       console.log(response)
@@ -54,7 +54,7 @@ function ViewProfile() {
         else if(choose==="rejected"){
             console.log("REJECTED...!")
             e.preventDefault()
-            const url = "http://localhost:3001/RNC/viewprofilereject"; //url to fetch details from rejected table
+            const url = "https://rnc-back-end-5zlfsmahea-el.a.run.app/RNC/viewprofilereject"; //url to fetch details from rejected table
            // const { data: res } = await axios.post(url, {title : title})  // must be post 
             axios.post(url,{name:name,branch:branch}).then((response) => {
               if(response.data.status==="FAILED")

@@ -31,7 +31,7 @@ function Form1() {
 	const handleSub = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:3001/RNC/addFP";
+			const url = "https://rnc-back-end-5zlfsmahea-el.a.run.app/RNC/addFP";
 			const { data: res } = await axios.post(url, data3);
 			navigate("/home");
 			console.log(res.message);

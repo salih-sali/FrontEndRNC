@@ -48,7 +48,7 @@ const [error, setError] = useState("")
           console.log("correct email address format!")
           console.log(data)
           try {
-            const url = "http://localhost:3001/RNC/signup"
+            const url = "https://rnc-back-end-5zlfsmahea-el.a.run.app/RNC/signup"
             const { data: res } = await axios.post(url, {
               "name": data.name,
               "branch": data.branch,

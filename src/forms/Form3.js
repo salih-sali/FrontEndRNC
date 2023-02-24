@@ -46,7 +46,7 @@ const navigate =useNavigate();
     // console.log("amount : "+amount)
     console.log(data)
     try{
-      const url = "http://localhost:3001/RNC/reimbursment";
+      const url = "https://rnc-back-end-5zlfsmahea-el.a.run.app/RNC/reimbursment";
       const {data: res} = await axios.post(url,data)
       alert(res.message)
 

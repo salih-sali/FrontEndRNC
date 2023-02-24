@@ -11,7 +11,7 @@ const Data = () => {
         
         try {
             
-            const url = "http://localhost:3001/RNC/return";
+            const url = "https://rnc-back-end-5zlfsmahea-el.a.run.app/RNC/return";
             Axios.get(url).then((res) =>{
             console.log(res.data)
             alert(res.data.message)

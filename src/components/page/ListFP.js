@@ -35,7 +35,7 @@ const handleS = async (e) => {
     // try {
         
     if(localStorage.role==='M') 
-       axios.post("http://localhost:3001/RNC/getFP",{dept:localStorage.branch}) //for member view
+       axios.post("https://rnc-back-end-5zlfsmahea-el.a.run.app/RNC/getFP",{dept:localStorage.branch}) //for member view
        .then((response) => {
         console.log(response)
             if(response.data.status==="FAILED")
@@ -49,7 +49,7 @@ const handleS = async (e) => {
           });
 
   if(localStorage.role==='A') 
-     axios.post("http://localhost:3001/RNC/getFP",{}) //for admin
+     axios.post("https://rnc-back-end-5zlfsmahea-el.a.run.app/RNC/getFP",{}) //for admin
           .then((response) => {
            console.log(response)
                if(response.data.status==="FAILED")
@@ -68,7 +68,7 @@ const q=()=>{
 //  const handleSq= async (e) => {
 //             e.preventDefault()
 //              try {
-//         const url = "http://localhost:3001/RNC/getFP";
+//         const url = "https://rnc-back-end-5zlfsmahea-el.a.run.app/RNC/getFP";
 //         //const { data: res } = await axios.post(url, {title : title})  ### must be post 
 //         axios.get(url, data4).then((response) => {
 //             if(response.data.status==="FAILED")

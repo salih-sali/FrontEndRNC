@@ -38,7 +38,7 @@ const [data, setData] = useState({ email: "", password: "" })
     // }
 
 		try {
-			const url = "http://localhost:3001/RNC/signin";
+			const url = "https://rnc-back-end-5zlfsmahea-el.a.run.app/RNC/signin";
 			const { data: res } = await axios.post(url, data);
       // fetch("http://localhost:8080/api/auth")
       // .then(response=>response.json())
